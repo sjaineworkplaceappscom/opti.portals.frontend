@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@progress/kendo-theme-bootstrap/scss/all";
+
+.background{
+    background: url('/assets/blue-bg.jpg') no-repeat center center fixed ;background-size: cover;-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+}

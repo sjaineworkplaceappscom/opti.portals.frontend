@@ -1,0 +1,18 @@
+.main-contenet-area{
+    
+    height: 700px;
+    background-color: #17a2b8;
+    
+}
+
+
+#container {
+    width:100%;
+    text-align:center;
+}
+#container > div {   
+    display: inline-block;
+    vertical-align: top;   
+    border:1px solid #17a2b8;
+    text-align:Left;   
+}

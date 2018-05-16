@@ -1,0 +1,203 @@
+<div id="wrapper" style="padding-top: 0px!important">
+    <div id="sidebar-wrapper">
+        <aside id="sidebar">
+            <ul id="sidemenu" class="sidebar-nav">
+
+                  
+
+                <li>
+                    <a (click)="updateSelection(1)">
+                        <span class="sidebar-icon">
+                            <i class="fa fa-truck fa-1x"></i>
+                        </span>
+                        <span class="sidebar-title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                        <a (click)="updateSelection(10)">
+                            <span class="sidebar-icon">
+                                <i class="fa fa-truck fa-1x"></i>
+                            </span>
+                            <span class="sidebar-title">Add Site Owner</span>
+                        </a>
+                    </li>
+                <li>
+                    <a (click)="updateSelection(2)">
+                        <span class="sidebar-icon">
+                            <i class="fa fa-bar-chart fa-1x"></i>
+                        </span>
+                        <span class="sidebar-title">Chart-dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a (click)="updateSelection(3)">
+                        <span class="sidebar-icon">
+                            <i class="fa fa-truck fa-1x"></i>
+                        </span>
+                        <span class="sidebar-title">Grid</span>
+                    </a>
+                </li>
+                <li>
+                    <a (click)="updateSelection(4)">
+                        <span class="sidebar-icon">
+                            <i class="fa fa-truck fa-1x"></i>
+                        </span>
+                        <span class="sidebar-title">Grid with filter</span>
+                    </a>
+                </li>
+                <li>
+                    <a (click)="updateSelection(5)">
+                        <span class="sidebar-icon">
+                            <i class="fa fa-bar-chart fa-1x"></i>
+                        </span>
+                        <span class="sidebar-title">Chart-full</span>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a (click)="updateSelection(6)">
+                        <span class="sidebar-icon">
+                            <i class="fa fa fa-truck fa-1x"></i>
+                        </span>
+                        <span class="sidebar-title">Customer List</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a (click)="updateSelection(7)">
+                        <span class="sidebar-icon">
+                            <i class="fa fa fa-users fa-1x"></i>
+                        </span>
+                        <span class="sidebar-title">Customer User List</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a (click)="updateSelection(8)">
+                        <span class="sidebar-icon">
+                            <i class="fa fa fa-truck fa-1x"></i>
+                        </span>
+                        <span class="sidebar-title">Vendor List</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a (click)="updateSelection(9)">
+                        <span class="sidebar-icon">
+                            <i class="fa fa fa-users fa-1x"></i>
+                        </span>
+                        <span class="sidebar-title">Vendor User List</span>
+                    </a>
+                </li> -->
+
+                <li>
+
+                    <kendo-panelbar >
+
+                        <kendo-panelbar-item title="" expanded=true  style="font-size: 14px; ">
+                            <ng-template kendoPanelBarItemTitle >
+                                <div style="margin: 5px;">
+                                <span class="sidebar-icon">
+                                    <i class="fa fa-truck fa-1x"></i>
+                                </span>
+                                <span class="sidebar-title">Customer</span>
+                            </div>
+                            </ng-template>
+                            <kendo-panelbar-item  [title]="'Customer List'" [iconClass]="'fa fa-truck fa-1x'" (click)="updateSelection(6)"></kendo-panelbar-item>
+                            <kendo-panelbar-item  [title]="'User List'" [iconClass]="'fa fa-users fa-1x'" (click)="updateSelection(7)"></kendo-panelbar-item>
+                        </kendo-panelbar-item>
+                    </kendo-panelbar>
+                </li>
+
+                <li class="sidebar-title">
+                        <kendo-panelbar >
+
+                                <kendo-panelbar-item title="" style="font-size: 14px;">
+                                    <ng-template kendoPanelBarItemTitle >
+                                        <div style="margin: 5px;" class="header">
+                                        <span class="sidebar-icon">
+                                            <i class="fa fa-truck fa-1x"></i>
+                                        </span>
+                                        <span class="sidebar-title">Vendor</span>
+                                    </div>
+                                    </ng-template>
+                                    <kendo-panelbar-item  [title]="'Vendor List'" [iconClass]="'fa fa-truck fa-1x'" (click)="updateSelection(8)"></kendo-panelbar-item>
+                                    <kendo-panelbar-item  [title]="'User List'" [iconClass]="'fa fa-users fa-1x'" (click)="updateSelection(9)"></kendo-panelbar-item>
+                                </kendo-panelbar-item>
+                            </kendo-panelbar>
+                </li>
+
+                <li class="sidebar-title">
+                        <kendo-panelbar >
+
+                                <kendo-panelbar-item title="" style="font-size: 14px;">
+                                    <ng-template kendoPanelBarItemTitle >
+                                        <div style="margin: 5px;">
+                                        <span class="sidebar-icon">
+                                            <i class="fa fa-desktop fa-1x"></i>
+                                        </span>
+                                        <span class="sidebar-title">Administration</span>
+                                    </div>
+                                    </ng-template>
+                                    <kendo-panelbar-item  [title]="'Manage Users'" [iconClass]="'fa fa-truck fa-1x'" (click)="updateSelection(11)"></kendo-panelbar-item>
+                                    
+                                </kendo-panelbar-item>
+                            </kendo-panelbar>
+                </li>
+                <!-- <li>
+                    <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
+                        <span class="sidebar-icon"><i class="fa fa-users"></i></span>
+                        <span class="sidebar-title">Management</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
+                        <li><a href="#"><i class="fa fa-caret-right"></i>Users</a></li>
+                        <li><a href="#"><i class="fa fa-caret-right"></i>Roles</a></li>
+                    </ul>
+                </li> -->
+                <!--  <li>
+                    <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-3">
+                        <span class="sidebar-icon"><i class="fa fa-newspaper-o"></i></span>
+                        <span class="sidebar-title">Blog</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul id="submenu-3" class="panel-collapse collapse panel-switch" role="menu">
+                        <li><a href="#"><i class="fa fa-caret-right"></i>Posts</a></li>
+                        <li><a href="#"><i class="fa fa-caret-right"></i>Comments</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+                        <span class="sidebar-title">Data</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="sidebar-icon"><i class="fa fa-terminal"></i></span>
+                        <span class="sidebar-title">Console</span>
+                    </a>
+                </li> -->
+            </ul>
+        </aside>
+    </div>
+    <main id="page-content-wrapper" role="main">
+        <div [ngSwitch]="selectedMenueOption">
+            <app-dashboard *ngIf="selectedMenueOption==1"></app-dashboard>
+            <app-shipping-chart-dhasboard *ngIf="selectedMenueOption==2"></app-shipping-chart-dhasboard>
+            <app-shiping-grid *ngIf="selectedMenueOption==3"></app-shiping-grid>
+            <!-- <app-shipping-chart-2 *ngIf="selectedMenueOption==4"></app-shipping-chart-2> -->
+            <app-shipping-chart-1 *ngIf="selectedMenueOption==5"></app-shipping-chart-1>
+            <app-demo-grid *ngIf="selectedMenueOption==4"></app-demo-grid>
+
+            <app-customer-list *ngIf="selectedMenueOption==6"></app-customer-list>
+            <app-customer-user-list *ngIf="selectedMenueOption==7"></app-customer-user-list>
+            <app-vendor-list *ngIf="selectedMenueOption==8"></app-vendor-list>
+            <app-vendor-user-list *ngIf="selectedMenueOption==9"></app-vendor-user-list>
+
+            <app-signup *ngIf="selectedMenueOption==10"></app-signup>
+            <app-user-list-with-status *ngIf="selectedMenueOption==11"></app-user-list-with-status>
+            
+
+        </div>
+    </main>
+</div>

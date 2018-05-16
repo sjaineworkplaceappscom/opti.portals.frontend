@@ -1,0 +1,4 @@
+<div [ngSwitch]="selectedMenueOption">
+  <app-shiping-grid *ngIf="selectedMenueOption==1"></app-shiping-grid>
+  <app-shipping-chart-1 *ngIf="selectedMenueOption==2"></app-shipping-chart-1>
+</div>

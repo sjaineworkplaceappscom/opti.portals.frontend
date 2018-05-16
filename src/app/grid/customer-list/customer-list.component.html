@@ -1,0 +1,16 @@
+<kendo-grid #grid [kendoGridBinding]="items" [pageSize]="10" [pageable]="true" [sortable]="true" [filterable]="true" [groupable]="true">
+    <kendo-grid-column field="CustomerName" title="Customer Name" [width]="40"></kendo-grid-column>
+    <kendo-grid-column field="puName" title="Primary User Name" [width]="40"></kendo-grid-column>
+    <kendo-grid-column field="LoginEmail" title="Primary User Email" [width]="40"></kendo-grid-column>
+    <kendo-grid-column field="CreatedDate" title="Primary User Singnup Date" [width]="40"></kendo-grid-column>
+    <kendo-grid-column field="TenantName" [width]="40" title="Tenant Name"></kendo-grid-column>  
+    <kendo-grid-column  [width]="40" >    
+        <ng-template kendoGridCellTemplate>
+          <button name="btnRemove" (click)="removeDemo($event)">remove</button>
+        </ng-template>
+    </kendo-grid-column>
+  </kendo-grid>
+  <div>
+  <!-- <input type="text" title="Demo Name" #demoName> -->
+  <!-- <button (click)="updateDemo(demoName.value,grid)">Update</button> -->
+  </div>

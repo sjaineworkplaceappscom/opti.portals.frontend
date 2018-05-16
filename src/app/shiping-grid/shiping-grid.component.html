@@ -1,0 +1,26 @@
+<div style="padding: 0px;text-align: center!important; border-color: #dde2e7;color: #212529;background-color: #f8f9fa;">
+        Rows per page <input type="number" [(ngModel)]="pageSize" style="width: 50px" max="999" min="1" >
+        <button (click)="loadItems()">Set</button>
+    </div>
+<kendo-grid
+ [data]="gridView" [pageSize]="pageSize" [skip]="skip"
+ [pageable]="true" (pageChange)="pageChange($event)"  [sortable]="true">
+    <kendo-grid-column field="ProductID" title="ID" width="40">
+    </kendo-grid-column>
+    <kendo-grid-column field="ProductName" title="Name" width="250">
+    </kendo-grid-column>
+    <kendo-grid-column field="Category.CategoryName" title="Category">
+    </kendo-grid-column>
+    <kendo-grid-column field="UnitPrice" title="Price" width="80">
+    </kendo-grid-column>
+    <kendo-grid-column field="UnitsInStock" title="In stock" width="80">
+    </kendo-grid-column>
+    <kendo-grid-column field="Discontinued" title="Discontinued" width="120">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <input type="checkbox" [checked]="dataItem.Discontinued" disabled/>
+        </ng-template>
+    </kendo-grid-column>
+     
+
+</kendo-grid>
+
