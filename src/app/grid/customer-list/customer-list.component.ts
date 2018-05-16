@@ -24,7 +24,7 @@ export class CustomerListComponent implements OnInit {
     this.getData().subscribe(
       data => {        
         this.items = JSON.parse(data, null);
-        alert('git test')
+        
       });
   }
 
