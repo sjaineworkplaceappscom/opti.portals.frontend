@@ -47,7 +47,7 @@ export class ShipingGridComponent implements OnInit {
   }
 
   private loadItems(): void {
-    debugger;
+    
     this.gridView = {
       
       data: this.items.slice(this.skip, this.skip + this.pageSize),

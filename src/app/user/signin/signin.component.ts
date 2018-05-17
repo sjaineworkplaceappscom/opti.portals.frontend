@@ -3,6 +3,7 @@ import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { HttpHelper } from '../../../helpers/http.helper';
 import { UserManageService } from '../../services/user-manage.service';
 import { Router } from '@angular/router';
+import { ApplicationState } from '../../helpers/ApplicationState';
 
 @Component({
   selector: 'app-signin',
@@ -19,42 +20,61 @@ export class SigninComponent implements OnInit {
     this.password = '';
   }
 
-  public login(userName: string, password: string) {
-    let errobj: ErrorObject = new ErrorObject();
-    this.userService.login(userName, password, errobj).then(
-      data => {
-        localStorage.setItem('AccessToken', data.access_token);
-        
-        localStorage.setItem('LoginUserName', userName);
-        
-        this.userService.getLoginUserDetails(userName).subscribe(          
-          (data:any)=> {
-            debugger;
-            
-         data=  JSON.parse(data);
-         localStorage.setItem('LoginUserDetail',JSON.stringify(data));
-         var systemAdmin:any=false;
-         debugger;
-           if(data!=null  && data[0].LoginUserType==4){
-           systemAdmin=true;
-           }
-           localStorage.setItem("SystemAdmin",systemAdmin);
-           
-          }
-        );
+  public async login(userName: string, password: string) {
+    let userId: string;
 
-        this.router.navigateByUrl('/home');
-      }
-    ).catch(
-      (err: HttpErrorResponse) => {
-        this.isError = true;       
+    await this.userService.getUserDetails(userName).subscribe(
+      userData => {
+        // jsonfy response object.
+        let resUserData = JSON.parse(userData);
+        if (resUserData != undefined && resUserData.length > 0) {
+          // Multiteenet 
+          if (resUserData.length > 1) {
+            ApplicationState.SharedData = resUserData;
+            this.router.navigateByUrl('/tenantselection');
+          }
+          // single tenanat
+          else {
+            let data = resUserData[0];
+            userId = data.LoginUserId;
+            this.generateLogintoken(userId, password, userName);
+
+            localStorage.setItem('LoginUserDetail', userData);
+
+            var systemAdmin: any = false;
+
+            if (data != null && data.LoginUserType == 4) {
+              systemAdmin = true;
+            }
+            localStorage.setItem("SystemAdmin", systemAdmin);
+          }
+        }
       }
     );
 
 
   }
 
+  // This is aprivate method to generate access token by using userid and pasword.
+  private generateLogintoken(userId: string, password: string, email: string): any {
+    let errobj: ErrorObject = new ErrorObject();
+    // Generate access token
+    this.userService.generateToken(userId, password, errobj).then(
+      data => {
+        localStorage.setItem('AccessToken', data.access_token);
+
+        this.router.navigateByUrl('/home');
+      }
+    ).catch(
+      (err: HttpErrorResponse) => {
+        this.isError = true;
+      }
+    );
+  }
+
 }
+
+
 
 export class ErrorObject {
   constructor() {

@@ -52,6 +52,7 @@ import { ResetPasswordComponent } from './user/reset-password/reset-password.com
 import { ChangePasswordComponent } from './user/change-password/change-password.component';
 import { SetPasswordComponent } from './user/set-password/set-password.component';
 import { UserListWithStatusComponent } from './administration/user-list-with-status/user-list-with-status.component';
+import { TenantselectionComponent } from './user/tenantselection/tenantselection.component';
 
 const routes: Routes = [
   
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path:'resetpassword',component:ResetPasswordComponent},
   {path:'changepassword',component:ChangePasswordComponent,canActivate:[AuthGuard]},
   {path:'setpassword',component:SetPasswordComponent},
+  {path:'tenantselection',component:TenantselectionComponent},
   {path:'manageusers',component:UserListWithStatusComponent},
   { path: '', redirectTo: 'login',pathMatch: 'full' },
   {path: '**', component: SigninComponent}
@@ -91,7 +93,8 @@ const routes: Routes = [
     ResetPasswordComponent,
     ChangePasswordComponent,
     SetPasswordComponent,
-    UserListWithStatusComponent
+    UserListWithStatusComponent,
+    TenantselectionComponent
   ],
   imports:[BrowserModule,
   // Register the modules

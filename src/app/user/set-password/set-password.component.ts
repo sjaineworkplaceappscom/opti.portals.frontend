@@ -21,13 +21,16 @@ export class SetPasswordComponent implements OnInit {
       param => {
         //this.userId=param['userId'];
         this.userLoginEmail = param['userLoginEmail'];
+        this.userId = param['userId'];
+
       }
     );
 
   }
 
   setPassword() {
-    this.userModel.UserName = this.userModel.Email = this.userLoginEmail;
+    this.userModel.UserName = this.userId;
+    this.userModel.Email = this.userLoginEmail;
     this.userService.setPassword(this.userModel);
   }
 

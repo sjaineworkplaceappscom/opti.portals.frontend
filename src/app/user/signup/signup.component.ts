@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
   }
 
   submit() {
-   debugger;
+   
     //this.registerReq. = this.registerReq.email;
     this.userService.registerUser(this.registerReq);
   }

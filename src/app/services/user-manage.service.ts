@@ -61,7 +61,7 @@ export class UserManageService {
 
     this.httpHelper.post(url, userModel, null, true).subscribe(
       data => {
-        alert('Welcome to optipro Portals, your password set successfully.');     
+        alert('Welcome to optipro Portals, your password set successfully.');
         this.router.navigateByUrl('/login');
 
 
@@ -84,14 +84,14 @@ export class UserManageService {
 
         this.router.navigateByUrl('/login');
 
-
       }
     )
 
   }
+  
 
   // Login.
-  public async login(userName: string, password: string, errobj: ErrorObject): Promise<any> {
+  public async generateToken(userName: string, password: string, errobj: ErrorObject): Promise<any> {
     let error: boolean = false;
     let data: string = "username=" + userName + "&password=" + password + "&grant_type=password";
     let reqHeaders = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
@@ -102,15 +102,11 @@ export class UserManageService {
 
   // Get login user detail
   // Login.
-  public getLoginUserDetails(userName: string): any {
+  public getUserDetails(userName: string): any {
     let error: boolean = false;
     let data: string = userName;
-    //let reqHeaders = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
 
-    //var columns: Array<string> = new Array<string>("DemoId", "DemoName");    
     return this.httpHelper.put<Array<any>>(this.baseUrl + 'user/loginuser', data, null);
-
-
   }
 
   // Invite users 
