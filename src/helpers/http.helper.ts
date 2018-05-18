@@ -5,9 +5,9 @@
 //==============================================================================
 
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
+
+import { Observable } from 'rxjs';
+
 import { Headers, Response, RequestMethod, RequestOptions, ResponseContentType } from '@angular/http';
 import { getLocaleDateTimeFormat } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

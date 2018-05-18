@@ -5,9 +5,9 @@ import { Headers, Response, RequestMethod, RequestOptions, ResponseContentType }
 
 
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
+
+import { Observable } from 'rxjs';
+
 import { HttpClient } from '@angular/common/http';
 
 

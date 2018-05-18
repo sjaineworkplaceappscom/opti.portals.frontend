@@ -3,9 +3,9 @@ import {  Headers, Response, RequestMethod, RequestOptions, ResponseContentType 
 
 
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
+
+import { Observable } from 'rxjs';
+
 import { HttpHelper } from '../../helpers/http.helper';
 import { UpdateDemoModel } from '../models/update.demo.model';
 import { DataBindingDirective } from '@progress/kendo-angular-grid';
