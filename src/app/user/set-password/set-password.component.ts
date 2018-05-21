@@ -29,6 +29,7 @@ export class SetPasswordComponent implements OnInit {
   }
 
   setPassword() {
+    debugger;
     this.userModel.UserName = this.userId;
     this.userModel.Email = this.userLoginEmail;
     this.userService.setPassword(this.userModel);

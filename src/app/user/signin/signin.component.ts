@@ -4,6 +4,8 @@ import { HttpHelper } from '../../../helpers/http.helper';
 import { UserManageService } from '../../services/user-manage.service';
 import { Router } from '@angular/router';
 import { ApplicationState } from '../../helpers/ApplicationState';
+import { CommonserviceService } from '../../services/commonservice.service';
+import { LoginModel } from '../../models/login-model';
 
 @Component({
   selector: 'app-signin',
@@ -12,7 +14,7 @@ import { ApplicationState } from '../../helpers/ApplicationState';
 })
 export class SigninComponent implements OnInit {
   isError: boolean = false;
-  constructor(private httpHelper: HttpHelper, private userService: UserManageService, private router: Router) { }
+  constructor(private httpHelper: HttpHelper, private userService: UserManageService, private router: Router, private commonService: CommonserviceService) { }
   userName: string;
   password: string;
   ngOnInit() {
@@ -31,6 +33,13 @@ export class SigninComponent implements OnInit {
           // Multiteenet 
           if (resUserData.length > 1) {
             ApplicationState.SharedData = resUserData;
+            let loginModel: LoginModel = new LoginModel();
+            loginModel.AuthData = resUserData;
+            loginModel.pwd = password;
+
+            // Pass data to tennant selection component.
+            // this.commonService.shareAuthData(loginModel);
+            this.commonService.setAuthCurrentValue(loginModel);
             this.router.navigateByUrl('/tenantselection');
           }
           // single tenanat
