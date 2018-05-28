@@ -36,7 +36,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { DemoGridComponent } from './demo-grid/demo-grid.component';
 import { HttpHelper } from '../helpers/http.helper';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './user/signup/signup.component';
 import { SigninComponent } from './user/signin/signin.component';
 
@@ -53,6 +53,7 @@ import { ChangePasswordComponent } from './user/change-password/change-password.
 import { SetPasswordComponent } from './user/set-password/set-password.component';
 import { UserListWithStatusComponent } from './administration/user-list-with-status/user-list-with-status.component';
 import { TenantselectionComponent } from './user/tenantselection/tenantselection.component';
+import { AuthInterceptor } from './intercepters/authIntercepter';
 
 const routes: Routes = [
   
@@ -106,7 +107,12 @@ const routes: Routes = [
   HttpClientModule,
   RouterModule.forRoot(routes)
 ],
-  providers: [CommonserviceService,HttpHelper,AuthGuard,UserManageService],
+  providers: [CommonserviceService,HttpHelper,AuthGuard,UserManageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
